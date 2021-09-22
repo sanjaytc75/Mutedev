@@ -18,7 +18,7 @@ const oauth2Client = new OAuth2(
 )
 
 //send Mail
-const sendEmail = (to, url) => {
+const sendEmail = (to, url, txt) => {
     oauth2Client.setCredentials({
         refresh_token: MAILING_SERVICE_REFRESH_TOKEN
     })
@@ -46,7 +46,7 @@ const sendEmail = (to, url) => {
         <p>Congradulations! you're almost set to start using TRAVEL.
         just click the button below to validate your email address.
         </p>
-        <a href=${url} style="background: crimson; text-decoratin: none; color: white; padding: 10px 20px;width:200px;">Verify your email address</a>
+        <a href=${url} style="background: crimson; text-decoratin: none; color: white; padding: 10px 20px;width:200px;">${txt}</a>
         <p>if the button doesn't work for any reason, you can also click on the link below:</p>
         <div>${url}</div>
         </div>
