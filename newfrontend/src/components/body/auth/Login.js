@@ -4,6 +4,9 @@ import axios from 'axios'
 import {dispatchLogin} from '../../../redux/actions/authAction'
 import {useDispatch} from 'react-redux'
 import {showErrMsg, showSuccessMsg} from '../../utils/notification/Notification'
+import { GoogleLogin } from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+
 
 const initialState = {
     email: '',
@@ -41,6 +44,38 @@ function Login() {
         }
     }
 
+    const responseGoogle = async (response) => {
+        try {
+            const res = await axios.post('/user/google_login', {tokenId: response.tokenId})
+
+            setUser({...user, error:'', success: res.data.msg})
+            localStorage.setItem('firstLogin', true)
+
+            dispatch(dispatchLogin())
+            history.push('/')
+        } catch (err) {
+            err.response.data.msg && 
+            setUser({...user, err: err.response.data.msg, success: ''})
+        }
+    }
+
+    const responseFacebook = async (response) =>{
+        console.log(response)
+        try {
+            const {accessToken, userID} = response
+            const res = await axios.post('/user/facebook_login', {accessToken, userID})
+
+            setUser({...user, error:'', success: res.data.msg})
+            localStorage.setItem('firstLogin', true)
+
+            dispatch(dispatchLogin())
+            history.push('/')
+        } catch (err) {
+            err.response.data.msg && 
+            setUser({...user, err: err.response.data.msg, success: ''})
+        }
+    }
+
     return (
         <div className="login_page">
             <h2>Login</h2>
@@ -65,6 +100,23 @@ function Login() {
                 </div>
             </form>
 
+            <div className="hr">Or Login With</div>
+
+            <div className="social">
+                <GoogleLogin
+                    clientId="102888899621-5dlohidn9r38q4nor9koqequ4p4dk6b7.apps.googleusercontent.com"
+                    buttonText="Login with google"
+                    onSuccess={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                />
+
+                <FacebookLogin
+                    appId="2434159946729010"
+                    autoLoad={false}
+                    fields="name,email,picture"
+                    callback={responseFacebook} 
+                />
+            </div>
             <p>New User? <Link to="/register">Register</Link></p>
         </div>
     )
