@@ -6,6 +6,7 @@ import {useDispatch} from 'react-redux'
 import {showErrMsg, showSuccessMsg} from '../../utils/notification/Notification'
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+import { ImFacebook } from "react-icons/im";
 
 
 const initialState = {
@@ -102,7 +103,7 @@ function Login() {
 
             <div className="hr">Or Login With</div>
 
-            <div className="social">
+            <div className="social" >
                 <GoogleLogin
                     clientId="102888899621-5dlohidn9r38q4nor9koqequ4p4dk6b7.apps.googleusercontent.com"
                     buttonText="Login with google"
@@ -115,6 +116,7 @@ function Login() {
                     autoLoad={false}
                     fields="name,email,picture"
                     callback={responseFacebook} 
+                    icon={< ImFacebook/>}
                 />
             </div>
             <p>New User? <Link to="/register">Register</Link></p>

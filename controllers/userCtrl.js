@@ -1,11 +1,15 @@
+
+
 const Users = require('../models/userModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const sendMail = require(('./sendMail'))
 
 const {google} = require('googleapis')
+const { response } = require('express')
 const {OAuth2} = google.auth
-
+//const fetch = require('node-fetch')
+const axios = require('axios');
 
 const client = new OAuth2(process.env.MAILING_SERVICE_CLIENT_ID)
 
@@ -253,11 +257,14 @@ const userCtrl = {
         try {
             const {accessToken, userID} = req.body
 
-            const URL = 'https://graph.facebook.com/v4.0/${userID}/?fields=id,name,email,picture&access_token=${accessToken}'
-
-            const data= await fetch(URL).then(res => res.json()).then(res => {return res})
-            
-            const {email, name, picture} = data
+            const URL = `https://graph.facebook.com/v4.0/${userID}`
+            const params = {
+                fields: 'id,name,email,picture',
+                  access_token: accessToken
+            };
+              
+            const response = await axios.get(URL, { params });           
+            const {email, name, picture} = response.data
 
             const password = email + process.env.FACEBOOK_SECRET
 
@@ -292,11 +299,10 @@ const userCtrl = {
                 })
 
                 res.json({msg: "Login success!"})
-            }
-
+            }     
 
         } catch (err) {
-            return res.status(500).json({msg: err.message})
+            return res.status(500).json({msg: "facebook login error: "+ err.message})
         }
     }
 }
