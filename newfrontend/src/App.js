@@ -68,6 +68,26 @@ function App() {
       <Header />
         <About />
       </Route>
+      <Route exact path="/forgot_password">
+      <Header />
+        <Body />
+      </Route>
+      <Route exact path="/user/reset/:token">
+      <Header />
+        <Body />
+      </Route>
+      <Route exact path="/user/activate/:activation_token">
+      <Header />
+        <Body />
+      </Route>
+      <Route exact path="/profile">
+      <Header />
+        <Body />
+      </Route>
+      <Route exact path="/edit_user/:id">
+      <Header />
+        <Body />
+      </Route>
 
 
       </div>
