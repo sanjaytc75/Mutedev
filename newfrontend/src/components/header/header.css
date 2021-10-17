@@ -9,20 +9,42 @@ header {
     padding: 0 30px;
 }
 
+
+header h1 {
+    display: inline;
+    text-decoration: none;
+    color: #FFF;
+    opacity: 1.5;
+}
+header h1 :hover{
+    opacity: 1.7;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.685);
+}
 header a {
     color: white;
     text-transform: uppercase;
     letter-spacing: 1.5px;
 }
 
-header ul li {
+header ul {
+    display: inline-block;
+    padding: 10px 10px;
+    
+    opacity: 1.5;
+    color: #FFF;
+    
+}
+header li {
     display: inline-block;
     padding: 10px 20px;
-    opacity: 0.7;
+    opacity: 1.5;
+    color: #FFF;
 }
 
 header ul li:hover {
-    opacity: 1;
+    opacity: 1.7;
+    color: rgba(255, 255, 255, 0.685);
 }
 
 header ul li img {

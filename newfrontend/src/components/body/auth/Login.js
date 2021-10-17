@@ -102,7 +102,7 @@ function Login() {
             </form>
 
             <div className="hr">Or Login With</div>
-
+            
             <div className="social" >
                 <GoogleLogin
                     clientId="102888899621-5dlohidn9r38q4nor9koqequ4p4dk6b7.apps.googleusercontent.com"

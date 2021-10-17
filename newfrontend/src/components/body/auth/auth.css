@@ -33,13 +33,13 @@
 }
 
 .login_page .row button {
-    width: 150px;
-    padding: 10px 0;
+    width: 50%;
+    padding: 10px 50px;
     color: white;
     background: #232b3a;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-right: 10px;
+    margin: 0px 110px;
 }
 
 .login_page p {
@@ -94,12 +94,13 @@
 .login_page .hr{
     margin: 15px 0;
     color: crimson;
+    text-align: center;
 }
 
 .login_page .social button{
     
-    width: 100%;
-    margin: 10px 0;
+    width: 50%;
+    margin: 10px 0px;
     height: 50px;
     font-size: 14px;
     font-weight: 200;

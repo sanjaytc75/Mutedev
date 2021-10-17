@@ -11,6 +11,8 @@ import ResetPass from '../body/auth/ResetPassword'
 import Profile from '../body/profile/Profile'
 import EditUser from './profile/EditUser'
 
+
+
 import {useSelector} from 'react-redux'
 
 function Body() {
@@ -31,7 +33,7 @@ function Body() {
 
                 <Route path="/profile" component={isLogged ? Profile : NotFound} exact />
                 <Route path="/edit_user/:id" component={isAdmin ? EditUser : NotFound} exact />
-                
+               
 
 
                 </Switch>
