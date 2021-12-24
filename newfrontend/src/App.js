@@ -6,6 +6,7 @@ import {dispatchLogin, fetchUser, dispatchGetUser} from './redux/actions/authAct
 import Header from './components/header/Header';
 import Body from './components/body/Body';
 import Main from './components/Main/Main';
+import { Footer } from './components/Footer/Footer';
 
 import Carousel from './components/Carousels/Carousel';
 
@@ -51,42 +52,47 @@ function App() {
         <Main />
         <Carousel />
         <Body />
+        <Footer />
       </Route>
       <Route exact path="/login">
       <Header />
         <Body />
+        <Footer />
       </Route>
       <Route exact path="/register">
       <Header />
         <Body />
+        <Footer />
       </Route>
       <Route exact path="/profile">
       <Header />
         <Body />
+        <Footer />
       </Route>
       <Route exact path="/About">
       <Header />
         <About />
+        <Footer />
       </Route>
       <Route exact path="/forgot_password">
       <Header />
         <Body />
+        <Footer />
       </Route>
       <Route exact path="/user/reset/:token">
       <Header />
         <Body />
+        <Footer />
       </Route>
       <Route exact path="/user/activate/:activation_token">
       <Header />
         <Body />
-      </Route>
-      <Route exact path="/profile">
-      <Header />
-        <Body />
+        <Footer />
       </Route>
       <Route exact path="/edit_user/:id">
       <Header />
         <Body />
+        <Footer />
       </Route>
 
 
