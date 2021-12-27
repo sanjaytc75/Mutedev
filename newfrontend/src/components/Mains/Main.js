@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaSearch} from "react-icons/fa";
 import { GrMapLocation } from "react-icons/gr";
 import { MdDateRange } from "react-icons/md";
+import {Link} from 'react-router-dom'
 
 
 export default function Main() {
@@ -55,21 +56,14 @@ export default function Main() {
                         <Form.Label> <MdDateRange/> Date of Depature</Form.Label>
                         <Form.Control type="date" placeholder="Date of Depature" />
                     </Form.Group>
-                    <Form.Group as={Col} controlId="formGridDateofReturn">
-                        <Form.Label> <MdDateRange/> Date of Return</Form.Label>
-                        <Form.Control type="date" placeholder="Date of Return" />
-                    </Form.Group>
-                    <m></m>
-                    <br/>
-                    <Form.Group as={Col} controlId="formGridSingleLady" style={{color:'black'}}>
-                        <Form.Check className="checkbox"type="checkbox" label="Single Lady" />
-                    </Form.Group>
-                    
-                    <Form.Group as={Col} controlId="formGridSingleLady">
+                    <Form.Group as={Col} style={{paddingTop:"25px"}} controlId="formGridSingleLady">
                         <button type="button" className="btn btn-primary btn-lg">
-                            search for bus <FaSearch/>
+                        <Link style={{ textDecoration:'none',color:"white"}}  to="/bus">
+                            search for bus <FaSearch/></Link>
                         </button>
                     </Form.Group>
+                    <m></m>
+                    
                 </Row>
             </Form>
 

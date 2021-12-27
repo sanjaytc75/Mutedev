@@ -5,12 +5,15 @@ import {dispatchLogin, fetchUser, dispatchGetUser} from './redux/actions/authAct
 
 import Header from './components/header/Header';
 import Body from './components/body/Body';
-import Main from './components/Main/Main';
+import Main from './components/Mains/Main';
+import Main2 from './components/Mains/Main2';
 import { Footer } from './components/Footer/Footer';
 
 import Carousel from './components/Carousels/Carousel';
 
 import { About } from './components/About/About';
+
+import  Bus  from './components/Bus/bus'
 
 
 import axios from 'axios';
@@ -92,6 +95,12 @@ function App() {
       <Route exact path="/edit_user/:id">
       <Header />
         <Body />
+        <Footer />
+      </Route>
+      <Route exact path="/bus">
+      <Header />
+      <Main2 />
+        <Bus/>
         <Footer />
       </Route>
 
